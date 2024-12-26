@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rides - Amusement Park</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Amusement Park</div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Location</a></li>
+                <li class="dropdown">
+                    <a href="#">What We Offer</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="rides.html">Rides</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Reservations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="rides-section">
+            <h1>Our Exciting Rides</h1>
+            <p>Discover a wide range of thrilling rides for all ages! From heart-pounding adventures to relaxing experiences, there's something for everyone.</p>
+
+
+			<h1>Choose a ride:</h1>
+    		<select id="ride-select">
+        		<option value="">--------</option>
+                <option value="1">Sky High Roller Coaster</option>
+                <option value="2">Grand Ferris Wheel</option>
+        		<option value="3">Jungle Slide</option>
+			 	<?php include 'fetch_rides.php'; ?>
+    		</select>
+			
+			<div id="ride-info">
+        		<p id="ride-time"></p>
+        		<p id="wait-time"></p>
+    		</div>
+			
+            <div id="ride-card" class="ride-card-container">
+            </div>           
+        </section>
+    </main>
+
+
+    <script>
+ 	document.getElementById('ride-select').addEventListener('change', function() {
+    const rideId = this.value;
+    if (rideId) {
+        fetch(`fetch_rides.php?ride_id=${rideId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('ride-info').innerHTML = '<p>Ride not found</p>';
+                    //document.getElementById('ride-card').innerHTML = '';
+                } else {
+                    document.getElementById('ride-info').innerHTML = `
+                        <div class="ride-card">
+                        <h2>${data.ride_name}</h2>
+                        <p>${data.description}</p>
+                        
+                        <img src="${data.image}" alt="${data.ride_name}">
+                        
+                         
+                                
+                        <p><strong>Open Time:</strong> ${data.open_time}</p>
+                        <p><strong>Close Time:</strong> ${data.close_time}</p>
+                        <p><strong>Wait Time:</strong> ${data.wait_time} minutes</p>
+                        </div>
+                    `;
+                    
+                    //document.getElementById('ride-card').innerHTML = `
+                               // <div class="ride-card">
+                                  //  <img src="images/${data.image}" alt="${data.ride_name}">
+                                  //  <h2>${data.ride_name}</h2>
+                                  //  <p>${data.description}</p>
+                               // </div>
+                               // `;
+                }
+            })
+            .catch(error => console.error('Error fetching ride data:', error));
+    } else {
+        document.getElementById('ride-info').innerHTML = '';
+        //document.getElementById('ride-card').innerHTML = '';
+    }
+});
+
+    </script>
+	
+	
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Amusement Park. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:info@amusementpark.com">info@amusementpark.com</a></p>
+    </footer>
+</body>
+</html>
