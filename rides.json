@@ -1,0 +1,29 @@
+[
+  {
+    "ride_id": 1,
+    "ride_name": "Sky High Roller Coaster",
+    "open_time": "08:00:00",
+    "close_time": "20:00:00",
+    "wait_time": 45,
+    "description": "Experience the thrill of heights and speed with breathtaking twists and turns!",
+    "image": "images/skyhigh.jpeg"
+  },
+  {
+    "ride_id": 2,
+    "ride_name": "Grand Ferris Wheel",
+    "open_time": "11:00:00",
+    "close_time": "17:00:00",
+    "wait_time": 30,
+    "description": "Enjoy panoramic views of the park and beyond on this classic family favorite.",
+    "image": "images/ferriswheel.jpeg"
+  },
+  {
+    "ride_id": 3,
+    "ride_name": "Jungle Slide",
+    "open_time": "10:00:00",
+    "close_time": "18:00:00",
+    "wait_time": 5,
+    "description": "Slide down the wild jungle-themed adventure and make a splash at the end!",
+    "image": "images/jungleslide.jpg"
+  }
+]
