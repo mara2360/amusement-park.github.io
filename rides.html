@@ -36,12 +36,11 @@
 
 
 			<h1>Choose a ride:</h1>
-    		<select id="ride-select">
+    			<select id="ride-select">
         		<option value="">--------</option>
-                <option value="1">Sky High Roller Coaster</option>
-                <option value="2">Grand Ferris Wheel</option>
+                	<option value="1">Sky High Roller Coaster</option>
+                	<option value="2">Grand Ferris Wheel</option>
         		<option value="3">Jungle Slide</option>
-			 	<?php include 'fetch_rides.php'; ?>
     		</select>
 			
 			<div id="ride-info">
@@ -56,44 +55,31 @@
 
 
     <script>
- 	document.getElementById('ride-select').addEventListener('change', function() {
+document.getElementById('ride-select').addEventListener('change', function() {
     const rideId = this.value;
     if (rideId) {
-        fetch(`fetch_rides.php?ride_id=${rideId}`)
+        fetch('rides.json') // Fetch the JSON file
             .then(response => response.json())
             .then(data => {
-                if (data.error) {
-                    document.getElementById('ride-info').innerHTML = '<p>Ride not found</p>';
-                    //document.getElementById('ride-card').innerHTML = '';
-                } else {
+                const ride = data.find(ride => ride.ride_id === parseInt(rideId));
+                if (ride) {
                     document.getElementById('ride-info').innerHTML = `
                         <div class="ride-card">
-                        <h2>${data.ride_name}</h2>
-                        <p>${data.description}</p>
-                        
-                        <img src="${data.image}" alt="${data.ride_name}">
-                        
-                         
-                                
-                        <p><strong>Open Time:</strong> ${data.open_time}</p>
-                        <p><strong>Close Time:</strong> ${data.close_time}</p>
-                        <p><strong>Wait Time:</strong> ${data.wait_time} minutes</p>
+                            <h2>${ride.ride_name}</h2>
+                            <p>${ride.description}</p>
+                            <img src="${ride.image}" alt="${ride.ride_name}">
+                            <p><strong>Open Time:</strong> ${ride.open_time}</p>
+                            <p><strong>Close Time:</strong> ${ride.close_time}</p>
+                            <p><strong>Wait Time:</strong> ${ride.wait_time} minutes</p>
                         </div>
                     `;
-                    
-                    //document.getElementById('ride-card').innerHTML = `
-                               // <div class="ride-card">
-                                  //  <img src="images/${data.image}" alt="${data.ride_name}">
-                                  //  <h2>${data.ride_name}</h2>
-                                  //  <p>${data.description}</p>
-                               // </div>
-                               // `;
+                } else {
+                    document.getElementById('ride-info').innerHTML = '<p>Ride not found</p>';
                 }
             })
             .catch(error => console.error('Error fetching ride data:', error));
     } else {
         document.getElementById('ride-info').innerHTML = '';
-        //document.getElementById('ride-card').innerHTML = '';
     }
 });
 
