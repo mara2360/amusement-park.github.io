@@ -109,6 +109,11 @@ main {
     margin-bottom: 1rem;
 }
 
+.hero img
+{
+    text-align: center;
+}
+
 /* Rides Section */
 .rides-section {
     max-width: 1200px;
