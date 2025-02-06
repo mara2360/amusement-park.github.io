@@ -111,7 +111,11 @@ main {
 
 .hero img
 {
-    text-align: center;
+     max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    margin-top: 1rem; /* Add some spacing above the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
 /* Rides Section */
