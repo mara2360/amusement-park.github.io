@@ -79,17 +79,7 @@ header {
 
 .dropdown-menu li {
     margin: 0.5rem 0;
-    text-align: center; /* Ensure text is centered */
     position: relative;
-    padding-left: 1.5rem; /* Add space for custom bullet */
-}
-
-.dropdown-menu li::before {
-    content: "•"; /* Custom bullet point */
-    position: absolute;
-    left: 50%; /* Center the bullet */
-    transform: translateX(-50%);
-    color: #fff; /* Match the text color */
 }
 
 .dropdown-menu a {
