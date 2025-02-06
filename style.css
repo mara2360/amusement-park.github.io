@@ -61,25 +61,22 @@ header {
 /* Dropdown Menu */
 .dropdown-menu {
     display: none;
-    list-style: none; /* Remove default bullets */
-    padding-left: 0; /* Remove default padding */
     position: absolute;
     top: 100%;
-    left: 50%; /* Center the dropdown menu */
-    transform: translateX(-50%); /* Adjust for centering */
-    text-align: center; /* Center the text */
-    width: auto; /* Adjust width to fit content */
-    min-width: 150px; /* Minimum width to ensure it doesn't look too narrow */
+    left: 0; /* Align dropdown to the left edge of the parent */
+    text-align: left; /* Left-align the text */
+    width: 100%; /* Full width of the parent */
     background-color: #264653;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border: 1px solid #2a9d8f;
     z-index: 10;
+    list-style: none; /* Remove bullet points */
 }
 
 .dropdown-menu li {
     margin: 0.5rem 0;
-    position: relative;
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 .dropdown-menu a {
