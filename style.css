@@ -63,9 +63,11 @@ header {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    text-align: center;
-    width: 100%;
+    left: 50%; /* Center the dropdown menu */
+    transform: translateX(-50%); /* Adjust for centering */
+    text-align: center; /* Center the text */
+    width: auto; /* Adjust width to fit content */
+    min-width: 150px; /* Minimum width to ensure it doesn't look too narrow */
     background-color: #264653;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -75,13 +77,14 @@ header {
 
 .dropdown-menu li {
     margin: 0.5rem 0;
-    text-align: center;
+    text-align: center; /* Ensure text is centered */
 }
 
 .dropdown-menu a {
     color: #fff;
     text-decoration: none;
-    text-align: center;
+    display: block; /* Make the link fill the entire li for better click area */
+    padding: 0.5rem 0; /* Add some padding for better spacing */
 }
 
 .dropdown:hover .dropdown-menu {
