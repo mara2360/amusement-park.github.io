@@ -215,9 +215,16 @@ main {
     text-align: center;
 }
 
-.about-section h1, h2 {
+.about-section h1 {
     color: #2a9d8f;
     margin-bottom: 1rem;
+    font-size: 60px
+}
+
+.about-section h2 {
+    color: #2a9d8f;
+    margin-bottom: 1rem;
+    font-size: 40px;
 }
 
 .about-section p {
