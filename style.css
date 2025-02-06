@@ -218,13 +218,13 @@ main {
 .about-section h1 {
     color: #2a9d8f;
     margin-bottom: 1rem;
-    font-size: 60px
+    font-size: 40px;
 }
 
 .about-section h2 {
     color: #2a9d8f;
     margin-bottom: 1rem;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .about-section p {
