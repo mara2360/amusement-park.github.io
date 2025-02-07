@@ -118,6 +118,12 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
+.white-container
+{
+    background-color: white;
+    width: 50%;
+}
+
 /* Rides Section */
 .rides-section {
     max-width: 1200px;
